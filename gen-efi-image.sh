@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-# gen-efi-image.sh SOURCE_IMG [EFI_IMG [DEST_IMG]
-# 
-# Generates an EFI-compatible x86-64 disk image for OpenWrt
-# by combining the rootfs and kernel from the latest stable release
-# with the EFI image available in snapshot since @a6b7c3e.
-# 
-# Download the EFI image from 
-# https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz
-#
-# Download the latest stable release from
-# https://downloads.openwrt.org/releases/19.07.3/targets/x86/64/openwrt-19.07.3-x86-64-combined-ext4.img.gz
-#
-# Tested with versions 19.07.2 and 19.07.3.
-
 set -e
 
 usage() {
