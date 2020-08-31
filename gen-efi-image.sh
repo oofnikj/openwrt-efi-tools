@@ -68,10 +68,10 @@ main() {
 
 	printf "Copy kernel from source image\n"
 	sudo mount -o loop,offset=$((512 * 512)) -t ext4 "${SOURCE_IMG}" "${tmpdir}"
-	cp "${tmpdir}"/boot/vmlinuz vmlinuz
+	sudo cp "${tmpdir}/boot/vmlinuz" vmlinuz
 	sudo umount "${tmpdir}"
 	sudo mount -o loop,offset=$((512 * 512)) -t vfat "${DEST_IMG}" "${tmpdir}"
-	sudo cp vmlinuz "${tmpdir}/boot/"
+	sudo mv vmlinuz "${tmpdir}/boot/vmlinuz"
 	sudo umount "${tmpdir}"
 }
 
