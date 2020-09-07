@@ -15,7 +15,7 @@ parse_args() {
 		printf "Incorrect parameters\n"
 		usage
 	fi
-	for f in $SOURCE_IMG $EFI_IMG $DEST_IMG; do
+	for f in $SOURCE_IMG $EFI_IMG; do
 		test -f "$f" || { printf "No file '%s'\n" $SOURCE_IMG; exit 1; }
 	done
 }
