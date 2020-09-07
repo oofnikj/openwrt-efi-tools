@@ -56,7 +56,7 @@ main() {
 	printf "Build partition table\n"
 	uuid=$(sfdisk -d "${EFI_IMG}" | grep 'type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7' | sed -E 's/.*uuid=(.*)/\1/g')
 	size=$(sfdisk -d "${SOURCE_IMG}" | grep 'type=83' | grep -v 'bootable' | sed -E 's/.*size=\s+([0-9]+).*/\1/g')
-	sfdisk image.img <<-EOF
+	sfdisk ${DEST_IMG} <<-EOF
 		label: gpt
 		label-id: D9265732-F7D1-ADBA-513C-502CE422E600
 		unit: sectors
