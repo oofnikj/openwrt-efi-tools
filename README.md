@@ -12,6 +12,10 @@ with the EFI image available in snapshot since [@a6b7c3e](https://github.com/ope
 
 Requires `qemu-utils` package.
 
+Tested with versions 19.07 through 19.07.4.
+
+## Instructions
+
 Download the latest stable release from OpenWrt:
 ```
 $ OPENWRT_VER=19.07.4
@@ -23,7 +27,12 @@ Download the EFI snapshot image:
 $ wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz
 ```
 
-Tested with versions 19.07 through 19.07.4.
+Generate the latest stable image:
+```
+$ ./gen-efi-image.sh openwrt-19.07.4-x86-64-combined-ext4.img.gz openwrt-x86-64-generic-ext4-combined-efi.img out.img
+```
+
+---
 
 * `resize-image.sh`
 ```
@@ -38,5 +47,6 @@ within OpenWrt is not possible with such a small disk and results in errors.
 ./qemu.sh IMAGE
 ```
 Runs the image in QEMU in EFI mode.
+
 On Debian / Ubuntu, the packages `qemu-kvm` and `ovmf` must be installed. The path to the OVMF
 firmware on Debian / Ubuntu should be changed to `/usr/share/OVMF/OVMF_CODE.fd`.
