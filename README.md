@@ -8,17 +8,22 @@ Some scripts to manage OpenWrt EFI images on x86_64.
 ```
 Generates an EFI-compatible x86-64 disk image for OpenWrt
 by combining the rootfs and kernel from the latest stable release
-with the EFI image available in snapshot since @a6b7c3e.
+with the EFI image available in snapshot since [@a6b7c3e](https://github.com/openwrt/openwrt/commit/a6b7c3e672764858fd294998406ae791f5964b4a).
 
 Requires `qemu-utils` package.
 
-Download the latest stable release from
-https://downloads.openwrt.org/releases/19.07.3/targets/x86/64/openwrt-19.07.3-x86-64-combined-ext4.img.gz
+Download the latest stable release from OpenWrt:
+```
+$ OPENWRT_VER=19.07.4
+$ wget https://downloads.openwrt.org/releases/${OPENWRT_VER}/targets/x86/64/openwrt-${OPENWRT_VER}-x86-64-combined-ext4.img.gz
+```
 
-Download the EFI image from 
-https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz
+Download the EFI snapshot image:
+```
+$ wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz
+```
 
-Tested with versions 19.07.2 and 19.07.3.
+Tested with versions 19.07 through 19.07.4.
 
 * `resize-image.sh`
 ```
