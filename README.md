@@ -12,13 +12,13 @@ with the EFI image available in snapshot since [@a6b7c3e](https://github.com/ope
 
 Requires `qemu-utils` package.
 
-Tested with versions 19.07 through 19.07.4.
+Tested with versions 19.07 through 19.07.5.
 
 ## Instructions
 
 Download the latest stable release from OpenWrt:
 ```
-$ OPENWRT_VER=19.07.4
+$ OPENWRT_VER=19.07.5
 $ wget https://downloads.openwrt.org/releases/${OPENWRT_VER}/targets/x86/64/openwrt-${OPENWRT_VER}-x86-64-combined-ext4.img.gz
 ```
 
@@ -29,14 +29,19 @@ $ wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-x86-64-gen
 
 Generate the latest stable image:
 ```
-$ ./gen-efi-image.sh openwrt-19.07.4-x86-64-combined-ext4.img.gz openwrt-x86-64-generic-ext4-combined-efi.img out.img
+$ ./gen-efi-image.sh \
+    openwrt-${OPENWRT_VER}-x86-64-combined-ext4.img.gz \
+    openwrt-x86-64-generic-ext4-combined-efi.img.gz \
+    openwrt-${OPENWRT_VER}-x86-64-combined-ext4-efi.img
 ```
 
 ---
 
 * `resize-image.sh`
+
+  `[SIZE]` is optional, defaults to 2G
 ```
-./resize-image.sh IMAGE [SIZE]
+./resize-image.sh openwrt-${OPENWRT_VER}-x86-64-combined-ext4-efi.img [SIZE]
 ```
 
 Generate a resized image with a larger root partition. Online resize from
